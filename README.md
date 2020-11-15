@@ -70,11 +70,14 @@ e3: minute mark bit is not 0
 ## Structure of a DCF77 packet
 
 ```
-0-00010100101001-00010-1-1100100-1-100000-1-0100100011000100000100-0-0
-| |------------/ |:|:| | |-----/ | |----/ | |--------------------/ | |
-| |              |:|:| | |       | |      | |                      | minute mark (always 0)
-| |              |:|:| | |       | |      | |                      parity for prev. section
-| |              |:|:| | |       | |      | ddddDDwwwmmmmMyyyyYYYY
+0-00010100101001-00010-1-1100100-1-100000-1-010010-001-10001-00000100-0-0
+| |------------/ |:|:| | |-----/ | |----/ | |----/ |-/ |---/ |------/ | |
+| |              |:|:| | |       | |      | |      |   |     |        | minute mark (always 0)
+| |              |:|:| | |       | |      | |      |   |     |        parity for prev. section
+| |              |:|:| | |       | |      | |      |   |     year
+| |              |:|:| | |       | |      | |      |   month
+| |              |:|:| | |       | |      | |      day of week
+| |              |:|:| | |       | |      | day
 | |              |:|:| | |       | |      parity for hours
 | |              |:|:| | |       | hours
 | |              |:|:| | |       parity for minutes
@@ -87,4 +90,11 @@ e3: minute mark bit is not 0
 | |              call bit
 | civil warning bits and weather information
 start of minute (always 0)
+
+The values are encoded digit by digit in BCD:
+  a b c d e f g h  =>  a*1 + b*2 + c*4 + d*8 + e*10 + f*20 + g*40 + h*80
+  0 1 0 0 0 0 1 0  =>  42
+  1 1 1 0 1 0 0 1  =>  97
+
+Day of week: 1 is Monday ... 7 is Sunday
 ```
