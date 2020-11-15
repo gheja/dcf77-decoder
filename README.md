@@ -74,10 +74,10 @@ e3: minute mark bit is not 0
 | |------------/ |:|:| | |-----/ | |----/ | |----/ |-/ |---/ |------/ | |
 | |              |:|:| | |       | |      | |      |   |     |        | minute mark (always 0)
 | |              |:|:| | |       | |      | |      |   |     |        parity for prev. section
-| |              |:|:| | |       | |      | |      |   |     year
-| |              |:|:| | |       | |      | |      |   month
+| |              |:|:| | |       | |      | |      |   |     years
+| |              |:|:| | |       | |      | |      |   months
 | |              |:|:| | |       | |      | |      day of week
-| |              |:|:| | |       | |      | day
+| |              |:|:| | |       | |      | days
 | |              |:|:| | |       | |      parity for hours
 | |              |:|:| | |       | hours
 | |              |:|:| | |       parity for minutes
@@ -96,5 +96,9 @@ The values are encoded digit by digit in BCD:
   0 1 0 0 0 0 1 0  =>  42
   1 1 1 0 1 0 0 1  =>  97
 
+Hours: in 24 hours format
+
 Day of week: 1 is Monday ... 7 is Sunday
+
+Years: within century (two digits)
 ```
