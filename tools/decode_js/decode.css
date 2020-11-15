@@ -1,0 +1,13 @@
+body
+{
+	padding-bottom: 10em;
+}
+
+pre
+{
+	line-height: 1.2em;
+	background: #eee;
+	padding: 0.5em;
+	border: 0.1em #aaa solid;
+	border-radius: 0.25em;
+}

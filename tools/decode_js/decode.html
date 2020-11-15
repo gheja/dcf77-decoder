@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>DCF77 time signal decoder</title>
+		<link rel="stylesheet" href="3rdparty/bootstrap/bootstrap-4.5.3-dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="decode.css" />
+		<script src="3rdparty/jquery/jquery-3.5.1.slim.js"></script>
+		<script src="3rdparty/bootstrap/bootstrap-4.5.3-dist/js/bootstrap.bundle.js"></script>
+		<script src="decode.js"></script>
+	</head>
+	<body class="bg-light">
+		<div class="container">
+		<h1>DCF77 time signal decoder</h1>
+		
+		<h2>Input</h2>
+		<p>
+			<input type="text" id="input" value="000010100101001000101110010011000001010010001100010000010000" class="form-control" />
+		</p>
+		
+		<p>
+<pre>
+<span id="input_parsed">0-00010100101001-00010-1-1100100-1-100000-1-0100100011000100000100-0-0</span>
+| |------------/ |:|:| | |-----/ | |----/ | |--------------------/ | |
+| |              |:|:| | |       | |      | |                      | minute mark (always 0)
+| |              |:|:| | |       | |      | |                      parity for prev. section
+| |              |:|:| | |       | |      | ddddDDwwwmmmmMyyyyYYYY
+| |              |:|:| | |       | |      parity for hours
+| |              |:|:| | |       | hours
+| |              |:|:| | |       parity for minutes
+| |              |:|:| | minutes
+| |              |:|:| minute start bit (always 1)
+| |              |:|:leap second announcement
+| |              |:|CET
+| |              |:CEST
+| |              |summer time announcement
+| |              call bit
+| civil warning bits and weather information
+start of minute (always 0)
+</pre>
+		</p>
+		
+		<h2>Output</h2>
+		<p>
+			<pre id="result"></pre>
+		</p>
+		
+		<h2>More info</h2>
+		
+		<p>
+			Specification on Wikipedia: <a href="https://en.wikipedia.org/wiki/DCF77">DCF77</a>.
+		</p>
+		
+		</div>
+	</body>
+</html>
