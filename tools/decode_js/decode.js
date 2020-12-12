@@ -118,8 +118,10 @@ function dcf77_decode(data)
 		pad(bcd(data, 29, 32) + bcd(data, 33, 34) * 10, 2) + ":" +
 		pad(bcd(data, 21, 24) + bcd(data, 25, 27) * 10, 2) + ":" +
 		"00 " +
-		(data[17] && !data[18]) ? "CEST" : (
-			(!data[17] && data[18]) ? "CET" : "???"
+		(
+			(data[17] && !data[18]) ? "CEST" : (
+				(!data[17] && data[18]) ? "CET" : "???"
+			)
 		);
 	
 	return result;
