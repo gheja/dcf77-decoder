@@ -2,14 +2,14 @@
 
 ## Scripts
 
-[[build.sh]]: build the C code and program the AVR.
+build.sh: build the C code and program the AVR.
 
-[[build_loop.sh]]: build and program the AVR if programmer is connected, start terminal if serial converter connected, repeat.
+build_loop.sh: build and program the AVR if programmer is connected, start terminal if serial converter connected, repeat.
 
 
 ## Samples
 
-Check [[samples.txt]] for captured and decoded DCF77 packets.
+Check [samples.txt] for captured and decoded DCF77 packets.
 
 
 ## Debug mode
@@ -102,3 +102,5 @@ Day of week: 1 is Monday ... 7 is Sunday
 
 Years: within century (two digits)
 ```
+
+Try to decode using the JavaScript decoder: [./tools/decode_js/decode.html]
