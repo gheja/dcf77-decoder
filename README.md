@@ -1,5 +1,7 @@
 # DCF77 receiver and decoder
 
+For detailed info see my [Receiving and decoding the DCF77 time signal with an ATMega/ATTiny AVR blog post](https://gabor.heja.hu/blog/2020/12/12/receiving-and-decoding-the-dcf77-time-signal-with-an-atmega-attiny-avr/).
+
 ## Scripts
 
 build.sh: build the C code and program the AVR.
